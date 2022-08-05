@@ -26,5 +26,5 @@ class SlingShot():
         return (2*(self.Spring * 4.5 * math.degrees(math.cos(math.asin(1/10)))))
 
 Test1 = SlingShot(5, 10, 70)
-print(Test1.kineticOutcome())
-print(Test1.ForceCalc2())
+print(Test1.EnergyOutcome())
+print(Test1.ForceOutcome())
