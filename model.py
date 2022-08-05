@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import math
 import statistics
 
 def ElasticEnergy(k,dx):
@@ -14,10 +15,16 @@ class SlingShot():
         self.Size = Size
         self.Angle = Angle
 
-    def kineticOutcome(self):
+    def EnergyOutcome(self):
+        '''Determines the ElasticPotential Energy of the slingshot at its maximum pulled distanc'''
         maxPullConst = 3*(11*0.5) # Proportion between length of elastic and the distanc pulled. 
         DistancePulled = maxPullConst/self.Size
         return ElasticEnergy(self.Spring, DistancePulled)
+    
+    def ForceOutcome(self):
+        '''Determines the Force of the object when it is pulled back in the slingshot'''
+        return (2*(self.Spring * 4.5 * math.degrees(math.cos(math.asin(1/10)))))
 
 Test1 = SlingShot(5, 10, 70)
 print(Test1.kineticOutcome())
+print(Test1.ForceCalc2())
