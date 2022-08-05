@@ -16,3 +16,4 @@ class SlingShot():
     def kineticOutcome(self):
         return ElasticEnergy(self.Spring, self.Size)
 
+
