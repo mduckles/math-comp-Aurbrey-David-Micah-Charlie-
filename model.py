@@ -15,9 +15,12 @@ class SlingShot():
         self.Angle = Angle
 
     def kineticOutcome(self):
+        '''out puts the ElasticEnergy'''
         maxPullConst = 3*(11*0.5) # Proportion between length of elastic and the distanc pulled. 
         DistancePulled = maxPullConst/self.Size
         return ElasticEnergy(self.Spring, DistancePulled)
+    
+
 
 Test1 = SlingShot(5, 10, 70)
 print(Test1.kineticOutcome())
