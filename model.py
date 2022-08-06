@@ -1,3 +1,4 @@
+from re import M
 import numpy as np
 import matplotlib.pyplot as plt
 import time
@@ -25,18 +26,18 @@ class SlingShot():
         '''Determines the Force of the object when it is pulled back in the slingshot'''
         return (2*(self.Spring * 4.5 * math.degrees(math.cos(math.asin(1/10)))))
     
-    def VelocityLaunch(self, weight):
+    def VelocityLaunch(self, mass):
         '''Assuming velocity is linear '''
-        Vel = (((99**0.5)**0.5) * (4.477**0.5) * (self.Spring**0.5) * self.Size)/ (weight**0.5)
+        Vel = (((99**0.5)**0.5) * (4.477**0.5) * (self.Spring**0.5) * self.Size)/ (mass**0.5)
         return Vel
 
     def MassOfVel(self, TargetVel):
-        return ((99**0.5) * 4.477 * self.Spring * (self.Size*2)) / TargetVel*2
+        return ((99**0.5) * 4.477 * self.Spring * (self.Size**2)) / TargetVel*2
 
 
-Payload_Weight = 1000
-default_size = 100
-escapeVel = 112000
-Test1 = SlingShot(81.75 *default_size, default_size, 70)
-print(Test1.VelocityLaunch(Payload_Weight))
-print(Test1.MassOfVel(escapeVel))
+
+escapeVel = 11200
+size = 828//((99**0.5)/2)
+BigSlingshot = SlingShot(81.75 * size/24, size, 70)
+Mass = BigSlingshot.MassOfVel(escapeVel)
+print(f'The mass of our object is {Mass} when the length of the elastic slingshot is {size} ')
