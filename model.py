@@ -24,6 +24,9 @@ class SlingShot():
     def ForceOutcome(self):
         '''Determines the Force of the object when it is pulled back in the slingshot'''
         return (2*(self.Spring * 4.5 * math.degrees(math.cos(math.asin(1/10)))))
+    
+    def AverageForce(self):
+        
 
 Test1 = SlingShot(5, 10, 70)
 print(Test1.EnergyOutcome())
