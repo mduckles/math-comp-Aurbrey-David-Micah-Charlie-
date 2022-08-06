@@ -7,7 +7,7 @@ import statistics
 def ElasticEnergy(k,dx):
     return (k*(dx)**2)/2
 
-Payload_Weight = 1
+
 class SlingShot():
     def __init__(self, Spring, Size, Angle):
         '''Spring is the spring constant of the Elastic part. Size is the length of the elastic. Angle is the angle of release'''
@@ -25,12 +25,18 @@ class SlingShot():
         '''Determines the Force of the object when it is pulled back in the slingshot'''
         return (2*(self.Spring * 4.5 * math.degrees(math.cos(math.asin(1/10)))))
     
-    def VelocityLaunch(self):
+    def VelocityLaunch(self, weight):
         '''Assuming velocity is linear '''
-        Vel = ((99**0.5)**0.5) * (4.477**0.5) * (self.Spring**0.5) * self.Size
+        Vel = (((99**0.5)**0.5) * (4.477**0.5) * (self.Spring**0.5) * self.Size)/ (weight**0.5)
         return Vel
 
-default_size = 10
+    def MassOfVel(self, TargetVel):
+        return ((99**0.5) * 4.477 * self.Spring * (self.Size*2)) / TargetVel*2
+
+
+Payload_Weight = 1000
+default_size = 100
+escapeVel = 112000
 Test1 = SlingShot(81.75 *default_size, default_size, 70)
-print(Test1.EnergyOutcome())
-print(Test1.ForceOutcome())
+print(Test1.VelocityLaunch(Payload_Weight))
+print(Test1.MassOfVel(escapeVel))
