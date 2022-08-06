@@ -26,12 +26,12 @@ class SlingShot():
         return (2*(self.Spring * 4.5 * math.degrees(math.cos(math.asin(1/10)))))
     
     def VelocityLaunch(self):
-        '''Assuming velocity is linear'''
+        '''Assuming velocity is linear '''
         Vel = ((99**0.5)**0.5) * (4.477**0.5) * (self.Spring**0.5) * self.Size
         return Vel
 
 default_size = 10
-Test1 = SlingShot(81 *default_size, default_size, 70)
+Test1 = SlingShot(81.75 *default_size, default_size, 70)
 print(Test1.EnergyOutcome())
 print(Test1.ForceOutcome())
 print(Test1.VelocityLaunch())
