@@ -37,7 +37,12 @@ class SlingShot():
 
 
 escapeVel = 11200
-size = 828//((99**0.5)/2)
+size = 828/((99**0.5)/2)
 BigSlingshot = SlingShot(81.75 * size/0.24, size, 70)
 Mass = BigSlingshot.MassOfVel(escapeVel)
-print(f'The mass of our object is {Mass} when the length of the elastic slingshot is {size} ')
+print(f'The mass of our object is {Mass} when the length of the elastic slingshot is {round(size, 3)}, when fired stright up ')
+
+size70deg = 828/((99**0.5)/2 * math.sin(math.radians(70)))
+BigAngledSlingshot = SlingShot(81.75 * size70deg/0.24, size70deg, 70)
+Mass70deg = BigAngledSlingshot.MassOfVel(escapeVel)
+print(f'The mass of our object is {Mass70deg} when the length of the elastic slingshot is {round(size70deg, 3)}, when fired at an angle of 70 degrees ')
