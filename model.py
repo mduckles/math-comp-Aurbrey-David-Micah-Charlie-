@@ -32,12 +32,12 @@ class SlingShot():
         return Vel
 
     def MassOfVel(self, TargetVel):
-        return ((99**0.5) * 4.477 * self.Spring * (self.Size**2)) / TargetVel*2
+        return (99**0.5) * 4.477 * self.Spring * (self.Size**2) / TargetVel**2
 
 
 
 escapeVel = 11200
 size = 828//((99**0.5)/2)
-BigSlingshot = SlingShot(81.75 * size/24, size, 70)
+BigSlingshot = SlingShot(81.75 * size/0.24, size, 70)
 Mass = BigSlingshot.MassOfVel(escapeVel)
 print(f'The mass of our object is {Mass} when the length of the elastic slingshot is {size} ')
