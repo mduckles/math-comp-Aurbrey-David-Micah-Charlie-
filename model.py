@@ -17,8 +17,8 @@ class SlingShot():
 
     def EnergyOutcome(self):
         '''Determines the ElasticPotential Energy of the slingshot at its maximum pulled distanc'''
-        maxPullConst = 3*(11*0.5) # Proportion between length of elastic and the distanc pulled. 
-        DistancePulled = maxPullConst/self.Size
+        maxPullConst = (99**0.5)/2 # Proportion between length of elastic and the distanc pulled. 
+        DistancePulled = self.Size * maxPullConst
         return ElasticEnergy(self.Spring, DistancePulled)
     
     def ForceOutcome(self):
@@ -26,8 +26,9 @@ class SlingShot():
         return (2*(self.Spring * 4.5 * math.degrees(math.cos(math.asin(1/10)))))
     
     def AverageForce(self):
-        
+        pass
 
-Test1 = SlingShot(5, 10, 70)
+default_size = 10
+Test1 = SlingShot(81 *default_size, default_size, 70)
 print(Test1.EnergyOutcome())
 print(Test1.ForceOutcome())
